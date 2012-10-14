@@ -1,12 +1,16 @@
 
 
 
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.tutorial.RoomNumber;
 
 /**
@@ -16,8 +20,15 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
   /**
    * @see JCasAnnotator_ImplBase#process(JCas)
    */
+  private PosTagNamedEntityRecognizer nounRecognizer;
+  
   public void process(JCas aJCas) {
     // get document text
+    try{
+      nounRecognizer=new PosTagNamedEntityRecognizer();
+    }catch(ResourceInitializationException e){
+      e.printStackTrace();
+    }
     String docText = aJCas.getDocumentText();
     String eol=System.getProperty("line.separator");
     String[] sentence=docText.split(eol);
@@ -34,6 +45,18 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
       annotation.setId(key);
       i=i+sentence[j].length()+1;
       annotation.addToIndexes();
+      Map<Integer,Integer> map=nounRecognizer.getGeneSpans(sentence[j].substring(tokens[0].length()+1,sentence[j].length()));
+      Iterator<Integer> beginIterator=map.keySet().iterator();
+      while(beginIterator.hasNext()){
+        Integer begin=beginIterator.next();
+        Integer end=map.get(begin);
+        Noun nounAnnotation=new Noun(aJCas);
+        nounAnnotation.setBegin(annotation.getBegin()+begin);
+        nounAnnotation.setEnd(annotation.getBegin()+end);
+        nounAnnotation.setId(key);
+        nounAnnotation.addToIndexes();
+      }
+     
     }
     // search for Yorktown room numbers
     /*
