@@ -22,9 +22,9 @@
         <inputs/>
         <outputs>
           <type>Sentence</type>
-          <type>Noun</type>
           <feature>Sentence:id</feature>
-          <feature>Noun:id</feature>
+          <feature>Sentence:end</feature>
+          <feature>Sentence:begin</feature>
         </outputs>
         <languagesSupported/>
       </capability>
