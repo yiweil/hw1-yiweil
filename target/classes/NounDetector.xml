@@ -2,9 +2,9 @@
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>
-  <annotatorImplementationName>SentenceAnnotator</annotatorImplementationName>
+  <annotatorImplementationName>NounDetector</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>sentenceAnatatorxml</name>
+    <name>NounDetector</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -19,9 +19,12 @@
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs/>
+        <inputs>
+          <type allAnnotatorFeatures="true">Sentence</type>
+        </inputs>
         <outputs>
           <type allAnnotatorFeatures="true">Sentence</type>
+          <type allAnnotatorFeatures="true">Noun</type>
         </outputs>
         <languagesSupported/>
       </capability>

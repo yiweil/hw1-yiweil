@@ -21,10 +21,7 @@
       <capability>
         <inputs/>
         <outputs>
-          <type>Sentence</type>
-          <feature>Sentence:id</feature>
-          <feature>Sentence:end</feature>
-          <feature>Sentence:begin</feature>
+          <type allAnnotatorFeatures="true">Sentence</type>
         </outputs>
         <languagesSupported/>
       </capability>

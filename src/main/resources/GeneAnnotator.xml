@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>
-  <annotatorImplementationName>SentenceAnnotator</annotatorImplementationName>
+  <primitive>false</primitive>
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="NounDetector">
+      <import location="NounDetector.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="SentenceAnnotator">
+      <import location="SentenceAnnotator.xml"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
-    <name>sentenceAnatatorxml</name>
+    <name>GeneAnnotator</name>
     <description/>
     <version>1.0</version>
     <vendor/>
     <configurationParameters/>
     <configurationParameterSettings/>
-    <typeSystemDescription>
-      <imports>
-        <import location="type_system_descriptor.xml"/>
-      </imports>
-    </typeSystemDescription>
-    <typePriorities/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>SentenceAnnotator</node>
+        <node>NounDetector</node>
+      </fixedFlow>
+    </flowConstraints>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs/>
         <outputs>
-          <type allAnnotatorFeatures="true">Sentence</type>
+          <type allAnnotatorFeatures="true">Noun</type>
         </outputs>
         <languagesSupported/>
       </capability>
