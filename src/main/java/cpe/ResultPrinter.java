@@ -1,39 +1,15 @@
 package cpe;
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
-
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Iterator;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
 import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.collection.base_cpm.CasObjectProcessor;
-import org.apache.uima.examples.SourceDocumentInformation;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.tcas.Annotation;
-import org.apache.uima.resource.ResourceConfigurationException;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
@@ -41,20 +17,11 @@ import org.apache.uima.util.ProcessTrace;
 import datatype.*;
 
 /**
- * The class of CAS Consumer. <br>
- * AnnotationPrinter prints to an output file all annotations in the CAS. <br>
- * Parameters needed by the AnnotationPrinter are
- * <ol>
- * <li> "outputFile" : file to which the output files should be written.</li>
- * </ol>
- * <br>
- * These parameters are set in the initialize method to the values specified in the descriptor file.
- * <br>
- * These may also be set by the application by using the setConfigParameterValue methods.
- * 
- * 
+ * The ResultPrinter is the Cas Consumer that takes the output from the analysis machine
+ * It will record the result in a file called hw1-yiweil.out file in the required format
+ * @author kane
+ *
  */
-
 public class ResultPrinter extends CasConsumer_ImplBase implements CasObjectProcessor {
   File resultFile;
 

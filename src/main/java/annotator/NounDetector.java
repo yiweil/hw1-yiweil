@@ -10,6 +10,13 @@ import datatype.*;
 import org.apache.uima.resource.ResourceInitializationException;
 
 
+/**
+ * The noun annotator takes the input of Sentence Annotations from SentenceAnnotator.
+ * It uses the POS tagging to find out noun and noun phrases. The are then constructed
+ * as the Noun annotations which will be the input for next stage of GeneSelector 
+ * @author kane
+ *
+ */
 public class NounDetector extends JCasAnnotator_ImplBase {
   private PosTagNamedEntityRecognizer nounRecognizer;
   @Override

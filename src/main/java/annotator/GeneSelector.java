@@ -15,13 +15,15 @@ import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 
+
 import datatype.*;
 
 
 /**
  * 
  * This GeneSelector class is the third annotator in the GeneAnnotation analysis machine.
- * It takes the Noun and Sentence Annotations as input and will 
+ * It takes the Noun and Sentence Annotations as input and will be forwarded into the CAS
+ * consumer which is called ResultPrinter.
  * @author kane
  *
  */
@@ -34,6 +36,7 @@ public class GeneSelector extends JCasAnnotator_ImplBase {
           throws ResourceInitializationException{
     File geneData=new File("src/main/resources/genenames.txt");
     geneList=new ArrayList<String>();
+    
     try {
       geneDataReader=new BufferedReader(new FileReader(geneData));
       String geneName;
