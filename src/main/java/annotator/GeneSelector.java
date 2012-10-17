@@ -20,7 +20,8 @@ import datatype.*;
 
 /**
  * 
- * gkeopjfepjwfeop
+ * This GeneSelector class is the third annotator in the GeneAnnotation analysis machine.
+ * It takes the Noun and Sentence Annotations as input and will 
  * @author kane
  *
  */
@@ -31,8 +32,7 @@ public class GeneSelector extends JCasAnnotator_ImplBase {
   @Override
   public void initialize(UimaContext aContext)
           throws ResourceInitializationException{
-    URL url=getClass().getResource("/home/kane/workspace/hw1-yiweil/src/main/resources/genenames.txt");
-    File geneData=new File("/home/kane/workspace/hw1-yiweil/src/main/resources/genenames.txt");
+    File geneData=new File("src/main/resources/genenames.txt");
     geneList=new ArrayList<String>();
     try {
       geneDataReader=new BufferedReader(new FileReader(geneData));
