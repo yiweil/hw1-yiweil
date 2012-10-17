@@ -1,3 +1,4 @@
+package annotator;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +15,15 @@ import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 
+import datatype.*;
 
+
+/**
+ * 
+ * gkeopjfepjwfeop
+ * @author kane
+ *
+ */
 public class GeneSelector extends JCasAnnotator_ImplBase {
   private BufferedReader geneDataReader;
   private ArrayList<String> geneList;
@@ -22,8 +31,8 @@ public class GeneSelector extends JCasAnnotator_ImplBase {
   @Override
   public void initialize(UimaContext aContext)
           throws ResourceInitializationException{
-    URL url=getClass().getResource("genenames.txt");
-    File geneData=new File(url.getPath());
+    URL url=getClass().getResource("/home/kane/workspace/hw1-yiweil/src/main/resources/genenames.txt");
+    File geneData=new File("/home/kane/workspace/hw1-yiweil/src/main/resources/genenames.txt");
     geneList=new ArrayList<String>();
     try {
       geneDataReader=new BufferedReader(new FileReader(geneData));

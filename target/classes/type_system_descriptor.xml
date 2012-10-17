@@ -6,7 +6,7 @@
   <vendor>The Apache Software Foundation</vendor>
   <types>
     <typeDescription>
-      <name>Sentence</name>
+      <name>datatype.Sentence</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
@@ -18,7 +18,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>Noun</name>
+      <name>datatype.Noun</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
@@ -35,7 +35,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>Gene</name>
+      <name>datatype.Gene</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>

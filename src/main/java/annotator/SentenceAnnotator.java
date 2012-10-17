@@ -1,3 +1,4 @@
+package annotator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -9,6 +10,7 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.tutorial.RoomNumber;
+import datatype.*;
 
 /**
  * Example annotator that detects room numbers using Java 1.4 regular expressions.
