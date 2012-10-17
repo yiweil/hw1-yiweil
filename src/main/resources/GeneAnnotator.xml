@@ -3,6 +3,9 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>
   <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="GeneSelector">
+      <import location="GeneSelector.xml"/>
+    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="NounDetector">
       <import location="NounDetector.xml"/>
     </delegateAnalysisEngine>
@@ -15,12 +18,13 @@
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
+    <configurationParameters searchStrategy="language_fallback"/>
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
         <node>SentenceAnnotator</node>
         <node>NounDetector</node>
+        <node>GeneSelector</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
@@ -29,6 +33,8 @@
         <inputs/>
         <outputs>
           <type allAnnotatorFeatures="true">Noun</type>
+          <type allAnnotatorFeatures="true">Sentence</type>
+          <type allAnnotatorFeatures="true">Gene</type>
         </outputs>
         <languagesSupported/>
       </capability>

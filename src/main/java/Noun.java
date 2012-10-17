@@ -10,7 +10,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Sun Oct 14 21:49:22 EDT 2012
+ * Updated by JCasGen Wed Oct 17 11:59:06 EDT 2012
  * XML source: /home/kane/workspace/hw1-yiweil/src/main/resources/type_system_descriptor.xml
  * @generated */
 public class Noun extends Annotation {
@@ -77,6 +77,24 @@ public class Noun extends Annotation {
     if (Noun_Type.featOkTst && ((Noun_Type)jcasType).casFeat_id == null)
       jcasType.jcas.throwFeatMissing("id", "Noun");
     jcasType.ll_cas.ll_setStringValue(addr, ((Noun_Type)jcasType).casFeatCode_id, v);}    
+   
+    
+  //*--------------*
+  //* Feature: sentenceStart
+
+  /** getter for sentenceStart - gets Start index of the sentence that the noun annotation belongs to
+   * @generated */
+  public int getSentenceStart() {
+    if (Noun_Type.featOkTst && ((Noun_Type)jcasType).casFeat_sentenceStart == null)
+      jcasType.jcas.throwFeatMissing("sentenceStart", "Noun");
+    return jcasType.ll_cas.ll_getIntValue(addr, ((Noun_Type)jcasType).casFeatCode_sentenceStart);}
+    
+  /** setter for sentenceStart - sets Start index of the sentence that the noun annotation belongs to 
+   * @generated */
+  public void setSentenceStart(int v) {
+    if (Noun_Type.featOkTst && ((Noun_Type)jcasType).casFeat_sentenceStart == null)
+      jcasType.jcas.throwFeatMissing("sentenceStart", "Noun");
+    jcasType.ll_cas.ll_setIntValue(addr, ((Noun_Type)jcasType).casFeatCode_sentenceStart, v);}    
   }
 
     

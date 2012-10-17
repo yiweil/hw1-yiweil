@@ -33,6 +33,7 @@ public class NounDetector extends JCasAnnotator_ImplBase {
         nounAnnotation.setBegin(sentence.getBegin()+begin);
         nounAnnotation.setEnd(sentence.getBegin()+end);
         nounAnnotation.setId(sentence.getId());
+        nounAnnotation.setSentenceStart(sentence.getBegin());
         nounAnnotation.addToIndexes();
       }
     }

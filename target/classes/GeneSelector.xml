@@ -25,6 +25,8 @@
         </inputs>
         <outputs>
           <type allAnnotatorFeatures="true">Gene</type>
+          <type allAnnotatorFeatures="true">Sentence</type>
+          <type allAnnotatorFeatures="true">Noun</type>
         </outputs>
         <languagesSupported/>
       </capability>

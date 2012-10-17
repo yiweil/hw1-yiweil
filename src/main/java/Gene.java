@@ -10,7 +10,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Sun Oct 14 21:49:22 EDT 2012
+ * Updated by JCasGen Wed Oct 17 11:59:06 EDT 2012
  * XML source: /home/kane/workspace/hw1-yiweil/src/main/resources/type_system_descriptor.xml
  * @generated */
 public class Gene extends Annotation {
@@ -77,6 +77,24 @@ public class Gene extends Annotation {
     if (Gene_Type.featOkTst && ((Gene_Type)jcasType).casFeat_id == null)
       jcasType.jcas.throwFeatMissing("id", "Gene");
     jcasType.ll_cas.ll_setStringValue(addr, ((Gene_Type)jcasType).casFeatCode_id, v);}    
+   
+    
+  //*--------------*
+  //* Feature: sentenceStart
+
+  /** getter for sentenceStart - gets Start index of the sentence that this gene annotation belongs to
+   * @generated */
+  public int getSentenceStart() {
+    if (Gene_Type.featOkTst && ((Gene_Type)jcasType).casFeat_sentenceStart == null)
+      jcasType.jcas.throwFeatMissing("sentenceStart", "Gene");
+    return jcasType.ll_cas.ll_getIntValue(addr, ((Gene_Type)jcasType).casFeatCode_sentenceStart);}
+    
+  /** setter for sentenceStart - sets Start index of the sentence that this gene annotation belongs to 
+   * @generated */
+  public void setSentenceStart(int v) {
+    if (Gene_Type.featOkTst && ((Gene_Type)jcasType).casFeat_sentenceStart == null)
+      jcasType.jcas.throwFeatMissing("sentenceStart", "Gene");
+    jcasType.ll_cas.ll_setIntValue(addr, ((Gene_Type)jcasType).casFeatCode_sentenceStart, v);}    
   }
 
     
