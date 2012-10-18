@@ -5,9 +5,9 @@
 	<artifactId>hw1-yiweil</artifactId>
 	<version>0.0.1</version>
 	<scm>
-		<connection>scm:git:git@github.com:yiweil/hw0-yiweil.git</connection>
+		<connection>scm:git:git@github.com:yiweil/hw1-yiweil.git</connection>
 	<developerConnection>
-			scm:git:git@github.com:yiweil/hw0-yiweil.git
+			scm:git:git@github.com:yiweil/hw1-yiweil.git
 	</developerConnection>
 	</scm>
 
