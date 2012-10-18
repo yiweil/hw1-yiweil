@@ -30,15 +30,8 @@ public class ResultPrinter extends CasConsumer_ImplBase implements CasObjectProc
   public ResultPrinter() {
   }
 
-  /**
-   * Initializes this CAS Consumer with the parameters specified in the descriptor.
-   * 
-   * @throws ResourceInitializationException
-   *           if there is error in initializing the resources
-   */
   public void initialize() throws ResourceInitializationException {
 
-    // extract configuration parameter settings
     resultFile=new File("hw1-yiweil.out");
 
     try {
@@ -48,19 +41,6 @@ public class ResultPrinter extends CasConsumer_ImplBase implements CasObjectProc
     }
   }
 
-  /**
-   * Processes the CasContainer which was populated by the TextAnalysisEngines. <br>
-   * In this case, the CAS index is iterated over selected annotations and printed out into an
-   * output file
-   * 
-   * @param aCAS
-   *          CasContainer which has been populated by the TAEs
-   * 
-   * @throws ResourceProcessException
-   *           if there is an error in processing the Resource
-   * 
-   * @see org.apache.uima.collection.base_cpm.CasObjectProcessor#processCas(CAS)
-   */
   public synchronized void processCas(CAS aCAS) throws ResourceProcessException {
     JCas jcas;
     try {
@@ -74,10 +54,22 @@ public class ResultPrinter extends CasConsumer_ImplBase implements CasObjectProc
     while (geneIterator.hasNext()) {
       System.out.println("+1");
       Gene geneAnnotation = (Gene)geneIterator.next();
+      int beginOffset=0;
+      int endOffset=0;
+      for(int i=geneAnnotation.getSentenceStart();i<geneAnnotation.getBegin();i++){
+        if(context.charAt(i)==' '){
+          beginOffset++;
+        }
+      }
+      for(int i=geneAnnotation.getSentenceStart();i<geneAnnotation.getEnd();i++){
+        if(context.charAt(i)==' '){
+          endOffset++;
+        }
+      }
       try{
         fileWriter.write(geneAnnotation.getId()+"|"
-                +(geneAnnotation.getBegin()-geneAnnotation.getSentenceStart())
-                +" "+(geneAnnotation.getEnd()-geneAnnotation.getSentenceStart())+"|"
+                +(geneAnnotation.getBegin()-geneAnnotation.getSentenceStart()-beginOffset)
+                +" "+(geneAnnotation.getEnd()-geneAnnotation.getSentenceStart()-endOffset)+"|"
                 +" "+context.substring(geneAnnotation.getBegin(), geneAnnotation.getEnd())+"\n");
         fileWriter.flush();
       } catch (IOException e) {
@@ -89,8 +81,6 @@ public class ResultPrinter extends CasConsumer_ImplBase implements CasObjectProc
  
   public void batchProcessComplete(ProcessTrace aTrace) throws ResourceProcessException,
           IOException {
-    // nothing to do in this case as AnnotationPrinter doesnot do
-    // anything cumulatively
   }
 
   
