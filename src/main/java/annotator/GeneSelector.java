@@ -37,11 +37,11 @@ public class GeneSelector extends JCasAnnotator_ImplBase {
   @Override
   public void initialize(UimaContext aContext)
           throws ResourceInitializationException{
-    InputStream inputStream = GeneSelector.class.getResourceAsStream("genenames.txt");
+    File inputFile = new File("genenames.txt");
     geneList=new ArrayList<String>();
     
     try {
-      geneDataReader=new BufferedReader(new InputStreamReader(inputStream));
+      geneDataReader=new BufferedReader(new FileReader(inputFile));
       String geneName;
       while((geneName=geneDataReader.readLine())!=null){
         geneList.add(geneName.trim().toUpperCase());
