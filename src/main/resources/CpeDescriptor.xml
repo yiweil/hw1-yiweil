@@ -9,7 +9,7 @@
                 <nameValuePair>
                     <name>InputDirectory</name>
                     <value>
-                        <string>/home/kane/workspace/hw1-yiweil/src/main/resources/data</string>
+                        <string>data</string>
                     </value>
                 </nameValuePair>
             </configurationParameterSettings>

@@ -52,7 +52,6 @@ public class ResultPrinter extends CasConsumer_ImplBase implements CasObjectProc
     String context=jcas.getDocumentText();
     Iterator geneIterator = jcas.getAnnotationIndex(Gene.type).iterator();
     while (geneIterator.hasNext()) {
-      System.out.println("+1");
       Gene geneAnnotation = (Gene)geneIterator.next();
       int beginOffset=0;
       int endOffset=0;

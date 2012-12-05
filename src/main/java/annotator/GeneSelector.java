@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -31,14 +33,15 @@ public class GeneSelector extends JCasAnnotator_ImplBase {
   private BufferedReader geneDataReader;
   private ArrayList<String> geneList;
   
+  
   @Override
   public void initialize(UimaContext aContext)
           throws ResourceInitializationException{
-    File geneData=new File("src/main/resources/genenames.txt");
+    InputStream inputStream = GeneSelector.class.getResourceAsStream("genenames.txt");
     geneList=new ArrayList<String>();
     
     try {
-      geneDataReader=new BufferedReader(new FileReader(geneData));
+      geneDataReader=new BufferedReader(new InputStreamReader(inputStream));
       String geneName;
       while((geneName=geneDataReader.readLine())!=null){
         geneList.add(geneName.trim().toUpperCase());
